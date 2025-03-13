@@ -163,7 +163,7 @@ from qdrant_client import QdrantClient
 
 client = QdrantClient(
   url='http://127.0.0.1:16333',
-  api_key='<API Key>'
+  api_key='DifyAi!2025220'
 )
 
 # 2.1 创建集合
