@@ -1,6 +1,7 @@
 # ---- 📋 场景 1：静态检测（快照诊断）燃气泄漏预测模型 ----
 import numpy as np
 import pandas as pd
+import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
@@ -115,6 +116,8 @@ print("\n分类报告:")
 print(classification_report(y_test, test_preds))
 
 # 7. 模拟实时监测预测
+#--------------------------------------------------
+
 print("\n🔔 实时监测预测演示 🔔")
 # 随机生成一个传感器读数样本
 samples = np.array([
@@ -137,3 +140,9 @@ for i in range(len(samples)):
   print(f"样本 {i+1}: 温度={samples[i,0]}℃ | 压力={samples[i,1]}MPa | 流量={samples[i,2]}m³/s")
   print(f"  预测结果: {status} | 泄漏概率: {leak_probabilities[i]:.1f}%")
   print("─" * 60)
+
+# 8. 保存模型文件
+#--------------------------------------------------
+  
+joblib.dump(model, 'rf_model.pkl')
+# model = joblib.load('rf_model.pkl')
